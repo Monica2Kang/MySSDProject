@@ -1,15 +1,18 @@
 #include "gmock/gmock.h"
 #include "SSDCmdParser.h"
-#include <iostream>
+#include "SSDDevice.h"
+//#include "SSDCmdBuffer.h"
+#include <string>
+
+using std::string;
 
 int main(int argc, const char* argv[]) {
 #ifndef _DEBUG
 	SSDCmdParser parser;
-	string result = parser.checkParsing(argc, argv);
-	std::cout << result << "\n";
+	parser.checkParsing(argc, argv);
 	return 0;
 #else
 	::testing::InitGoogleMock();
 	return RUN_ALL_TESTS();
-#endif // !1
+#endif // !_DEBUG
 }
